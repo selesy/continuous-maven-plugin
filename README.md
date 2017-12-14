@@ -22,13 +22,21 @@ step.  The following Maven command will start the build pipeline using the
 main Maven configuration as the first step of the build:
 
 ```
-mvn pipeline:pipeline
+mvn continuous:build
 ```
 
 Each profile must define the prerequisite steps - Ordering the steps by number
 allows only sequential ordering while defining the pipeline by defining the
 next steps to be executed allows easy splitting but makes it harder to define
 merge behavior.
+
+To aid with building pipelines within Maven profiles and correctly defining the
+predecessor steps, this plugin also provides a goal that displays a graph of
+the entire pipeline.  Use the following command to view the pipeline's graph:
+
+```
+mvn continuous:graph
+```
 
 ## Questions to be answered
 
